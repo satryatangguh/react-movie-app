@@ -2,7 +2,7 @@ import React,{ useState, useEffect } from 'react';
 import './App.css';
 import MovieBox from './MovieBox';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav, Form, FormControl, Button, Row, Col } from 'react-bootstrap';
 
 
 const API_URL="https://api.themoviedb.org/3/movie/popular?api_key=21ffcbecb3d48c284c502cdad4c17183"
@@ -45,7 +45,6 @@ function App() {
       <Navbar bg="dark" expand="lg" variant="dark">
         <Container fluid>
           <Navbar.Brand href="/home">Vidport</Navbar.Brand>
-          <Navbar.Brand href="/home">Trending</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
           <Navbar.Collapse id="navbarScroll">
             <Nav 
@@ -69,12 +68,15 @@ function App() {
       </Navbar>
       <div>
         {movies.length > 0 ? (
-          <div className='container'>
-            <div className='grid'>
-              { movies.map((movieReq)=>
-              <MovieBox key={movieReq.id} {...movieReq}/>) }
-            </div>
-          </div>
+          <Container fluid>
+            <Row lg={5} md={3} sm={2} xs={2}>
+              {movies.map((movieReq) => (
+                <Col>
+                  <MovieBox key={movieReq.id} {...movieReq}/> 
+                </Col>
+              ))}
+            </Row>
+          </Container>
         ):(
           <h2>Sorry Movie Not Found</h2>
         )}
