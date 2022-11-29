@@ -18,3 +18,18 @@ body {
     transform: scale(1.1);
     transition: all 0.5s ease-in;
 }
+
+.card-title {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.card-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-overview {
+    font-size: 14px;
+    text-align: justify;
+}
