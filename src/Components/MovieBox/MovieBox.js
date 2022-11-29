@@ -1,5 +1,6 @@
 import { Modal, show, Button} from 'react-bootstrap';
 import React, {useState} from 'react';
+import './MovieBox.css';
 
 const API_IMG="https://image.tmdb.org/t/p/w500/";
 const MovieBox = ({title, poster_path, id, popularity, overview}) => {
@@ -10,9 +11,9 @@ const MovieBox = ({title, poster_path, id, popularity, overview}) => {
 
     return (
         <>
-            <div className="card text-center bg-secondary my-3">
+            <div className="card text-center my-3 bg-dark rounded-3">
                 <div className="card-body">
-                    <img className="card-img-top" src={API_IMG + poster_path} />
+                    <img className="card-img-top rounded-3" src={API_IMG + poster_path} />
                     <div className="card-body">
                         <button
                             type="button"

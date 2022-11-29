@@ -1,6 +1,7 @@
 import React,{ useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
-import MovieBox from './MovieBox';
+import MovieBox from './Components/MovieBox/MovieBox';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, Form, FormControl, Button, Row, Col } from 'react-bootstrap';
 
@@ -41,47 +42,56 @@ function App() {
   }
 
   return (
-    <>
-      <Navbar bg="dark" expand="lg" variant="dark">
-        <Container fluid>
-          <Navbar.Brand href="/home">Vidport</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
-          <Navbar.Collapse id="navbarScroll">
-            <Nav 
-              className="me-auto my-2 my-lg-3" 
-              style={{maxHeight:'100px'}}navbarScroll>
-            </Nav>
-            <Form className="d-flex" onSubmit={searchMovie}>
-              <FormControl 
-                type="search" 
-                placeholder="Movie Search" 
-                className="me-2" 
-                aria-label="search" 
-                name="query"
-                value={query}
-                onChange={changeHandler}>
-              </FormControl>
-              <Button variant="secondary" type="submit">Search</Button>
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <div>
-        {movies.length > 0 ? (
-          <Container fluid>
-            <Row lg={5} md={3} sm={2} xs={2}>
-              {movies.map((movieReq) => (
-                <Col>
-                  <MovieBox key={movieReq.id} {...movieReq}/> 
-                </Col>
-              ))}
-            </Row>
-          </Container>
-        ):(
-          <h2>Sorry Movie Not Found</h2>
-        )}
-      </div>
-    </>
+      <>
+          <Navbar bg="dark" expand="lg" variant="dark">
+              <Container fluid>
+                  <Navbar.Brand href="/home">Vidport</Navbar.Brand>
+                  <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
+                  <Navbar.Collapse id="navbarScroll">
+                      <Nav
+                          className="me-auto"
+                          style={{ maxHeight: "100px" }}
+                          navbarScroll
+                      >
+                          <Nav.Link href="/home">Home</Nav.Link>
+                          <Nav.Link href="/watchlist">Watchlist</Nav.Link>
+                      </Nav>
+                      <Form className="d-flex" onSubmit={searchMovie}>
+                          <FormControl
+                              type="search"
+                              placeholder="Movie Search"
+                              className="me-2"
+                              aria-label="search"
+                              name="query"
+                              value={query}
+                              onChange={changeHandler}
+                          ></FormControl>
+                          <Button variant="secondary" type="submit">
+                              Search
+                          </Button>
+                      </Form>
+                      <Nav>
+                          <Nav.Link href="/login">Login</Nav.Link>
+                      </Nav>
+                  </Navbar.Collapse>
+              </Container>
+          </Navbar>
+          <div>
+              {movies.length > 0 ? (
+                  <Container fluid>
+                      <Row lg={5} md={3} sm={2} xs={2}>
+                          {movies.map((movieReq) => (
+                              <Col>
+                                  <MovieBox key={movieReq.id} {...movieReq} />
+                              </Col>
+                          ))}
+                      </Row>
+                  </Container>
+              ) : (
+                  <h2>Sorry Movie Not Found</h2>
+              )}
+          </div>
+      </>
   );
 }
 

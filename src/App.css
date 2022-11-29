@@ -7,7 +7,7 @@ body {
   text-decoration: none;
   list-style-type: none;
   outline: none;
-  background-image: url("image.jpg");
+  background-image: url("assets/image.jpg");
 }
 
 .container {
