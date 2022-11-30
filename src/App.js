@@ -65,26 +65,26 @@ function App() {
                             <Nav.Link href="/home">Home</Nav.Link>
                             <Nav.Link href="/watchlist">Watchlist</Nav.Link>
                         </Nav>
-                        <Form className="d-flex" onSubmit={searchMovie}>
-                            <FormControl
-                                type="search"
-                                placeholder="Movie Search"
-                                className="me-2"
-                                aria-label="search"
-                                name="query"
-                                value={query}
-                                onChange={changeHandler}
-                            ></FormControl>
-                            <Button variant="secondary" type="submit">
-                                Search
-                            </Button>
-                        </Form>
                         <Nav>
                             <Nav.Link href="/login">Login</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            <Form className="d-flex" onSubmit={searchMovie}>
+                <FormControl
+                    type="search"
+                    placeholder="Movie Search"
+                    className="me-2"
+                    aria-label="search"
+                    name="query"
+                    value={query}
+                    onChange={changeHandler}
+                ></FormControl>
+                <Button variant="secondary" type="submit">
+                    Search
+                </Button>
+            </Form>
             <div>
                 {movies.length > 0 ? (
                     <Container fluid>
