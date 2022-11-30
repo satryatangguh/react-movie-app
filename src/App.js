@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import NavBar from "./Components/NavBar/NavBar";
 import MovieBox from "./Components/MovieBox/MovieBox";
 import Login from "./Components/Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -52,25 +53,7 @@ function App() {
 
     return (
         <>
-            <Navbar bg="dark" expand="lg" variant="dark">
-                <Container fluid>
-                    <Navbar.Brand href="/home">Vidport</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
-                    <Navbar.Collapse id="navbarScroll">
-                        <Nav
-                            className="me-auto"
-                            style={{ maxHeight: "100px" }}
-                            navbarScroll
-                        >
-                            <Nav.Link href="/home">Home</Nav.Link>
-                            <Nav.Link href="/watchlist">Watchlist</Nav.Link>
-                        </Nav>
-                        <Nav>
-                            <Nav.Link href="/login">Login</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+            <NavBar/>
             <Form className="d-flex" onSubmit={searchMovie}>
                 <FormControl
                     type="search"
