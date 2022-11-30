@@ -21,11 +21,11 @@ function Login() {
     onSubmit: values => {
         console.log(values)
         // Movie DB auth step 1
-        axios.get(`${process.env.REACT_APP_BASEURL}authentication/token/new?api_key=${process.env.REACT_APP_APIKEY}`)
+        axios.get(`${process.env.API_URL}authentication/token/new?api_key=${process.env.API_KEY}`)
         .then(response => {
             const requestToken = response.data.request_token
             console.log(requestToken);
-            axios.post(`${process.env.REACT_APP_BASEURL}authentication/token/validate_with_login?api_key=${process.env.REACT_APP_APIKEY}`,
+            axios.post(`${process.env.API_URL}authentication/token/validate_with_login?api_key=${process.env.API_KEY}`,
                 {
                     username: values.username,
                     password: values.password,
@@ -33,7 +33,7 @@ function Login() {
                 }).then(res => {
                     const validatedRequestToken = res.data.request_token
                     console.log(validatedRequestToken);
-                    axios.post(`${process.env.REACT_APP_BASEURL}authentication/session/new?api_key=${process.env.REACT_APP_APIKEY}`,
+                    axios.post(`${process.env.API_URL}authentication/session/new?api_key=${process.env.API_KEY}`,
                     {
                         request_token: validatedRequestToken
                     }).then(res => {
