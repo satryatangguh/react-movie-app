@@ -6,3 +6,26 @@
     padding: 0;
     margin: 0;
 }
+
+.navbar-logo {
+    font-family: 'Michroma', sans-serif;
+    color: #FFD700 !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    display: inline-flex;
+    align-items: center;
+
+}
+
+.navbar-logo i {
+    font-size: 30px !important;
+}
+
+.navlink {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    color: #fff !important
+}
+
+
+

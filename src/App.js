@@ -3,12 +3,9 @@ import axios from "axios";
 import "./App.css";
 import NavBar from "./Components/NavBar/NavBar";
 import MovieBox from "./Components/MovieBox/MovieBox";
-import Login from "./Components/Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
-    Navbar,
     Container,
-    Nav,
     Form,
     FormControl,
     Button,
