@@ -13,16 +13,16 @@ import {
     Row,
     Col,
 } from "react-bootstrap";
+// import * as dotenv from 'dotenv';
 
-const API_URL =
-    "https://api.themoviedb.org/3/movie/popular?api_key=21ffcbecb3d48c284c502cdad4c17183";
 
 function Home() {
+    // dotenv.config()
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState("");
 
     useEffect(() => {
-        fetch(API_URL)
+        fetch(`${process.env.REACT_APP_APIURL}movie/popular?api_key=${process.env.REACT_APP_APIKEY}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -50,7 +50,6 @@ function Home() {
 
     return (
         <>
-            <NavBar/>
             <Form className="d-flex" onSubmit={searchMovie}>
                 <FormControl
                     type="search"
@@ -70,8 +69,8 @@ function Home() {
                     <Container fluid>
                         <Row lg={5} md={3} sm={2} xs={2}>
                             {movies.map((movieReq) => (
-                                <Col>
-                                    <MovieBox key={movieReq.id} {...movieReq} />
+                                <Col key={movieReq.id}>
+                                    <MovieBox {...movieReq} />
                                 </Col>
                             ))}
                         </Row>

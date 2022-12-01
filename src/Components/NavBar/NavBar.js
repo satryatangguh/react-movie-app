@@ -11,7 +11,7 @@ function NavBar() {
         if(localStorage.getItem("sessionID")) {
             const getAccount = async () => {
                 try {
-                    let response = await axios.get(`${process.env.API_URL}account?api_key=${process.env.API_KEY}&session_id=${localStorage.getItem("sessionID")}`);
+                    let response = await axios.get(`${process.env.REACT_APP_APIURL}account?api_key=${process.env.REACT_APP_APIKEY}&session_id=${localStorage.getItem("sessionID")}`);
                     setUsername(response.data.username);
                 } catch (error) {
                     console.log(error);
@@ -27,7 +27,7 @@ function NavBar() {
                 try {
                     await axios ({
                         method: "delete",
-                        url: `${process.env.API_URL}authentication/session?api_key=${process.env.API_KEY}`,
+                        url: `${process.env.REACT_APP_APIURL}authentication/session?api_key=${process.env.REACT_APP_APIKEY}`,
                         data: {
                             session_id: localStorage.getItem("sessionID"),
                         },
@@ -78,24 +78,12 @@ function NavBar() {
         <>
             <Navbar bg="dark" variant="dark" className='navbar px-2 py-1'>
                 <Container fluid>
-                    <Navbar.Brand href="/home" className='d-flex align-items-center navbar-logo'><i class="ri-play-circle-fill me-1"></i>VIDPORT</Navbar.Brand>
+                    <Navbar.Brand href="/home" className='d-flex align-items-center navbar-logo'><i className="ri-play-circle-fill me-1"></i>VIDPORT</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
                     <Navbar.Collapse id="navbarScroll">
                         {renderUserName()}
                         {renderLoginLogout()}
-
-                        {/* <Nav
-                            className="me-auto"
-                        >
-                            <Nav.Link href="/login" className='navlink'>{renderLoginLogout()}</Nav.Link>
-                        </Nav>
                         
-                        <Nav
-                            className="me-auto justify-content-end flex-grow-1"
-                            navbarScroll
-                        >
-                            <Nav.Link href="/login" className='navlink'>{renderLoginLogout()}</Nav.Link>
-                        </Nav> */}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
