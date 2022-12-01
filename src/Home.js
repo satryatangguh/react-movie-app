@@ -21,14 +21,21 @@ function Home() {
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState("");
 
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_APIURL}movie/popular?api_key=${process.env.REACT_APP_APIKEY}`)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             console.log(data);
+    //             setMovies(data.results);
+    //         });
+    // }, []);
+
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_APIURL}movie/popular?api_key=${process.env.REACT_APP_APIKEY}`)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setMovies(data.results);
-            });
-    }, []);
+        axios.get(`${process.env.REACT_APP_APIURL}movie/popular?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`).then(response=>{
+            setMovies(response.data.results)
+        }).catch(err=>{console.log(err)})
+    }, [])
+    
 
     const searchMovie = async (e) => {
         e.preventDefault();
@@ -68,9 +75,9 @@ function Home() {
                 {movies.length > 0 ? (
                     <Container fluid>
                         <Row lg={5} md={3} sm={2} xs={2}>
-                            {movies.map((movieReq) => (
-                                <Col key={movieReq.id}>
-                                    <MovieBox {...movieReq} />
+                            {movies.map((movie, index) => (
+                                <Col key={index}>
+                                    <MovieBox {...movie} />
                                 </Col>
                             ))}
                         </Row>
