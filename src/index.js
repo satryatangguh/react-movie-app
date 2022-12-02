@@ -5,6 +5,7 @@ import './index.css';
 import Home from './Home';
 import Login from './Components/Login/Login';
 import NavBar from './Components/NavBar/NavBar';
+import Watchlist from './Components/Watchlist/Watchlist';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login/>,
+      },
+      {
+        path: "/watchlist",
+        element: <Watchlist/>,
       },
     ],
   },

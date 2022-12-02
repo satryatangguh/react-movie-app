@@ -76,14 +76,13 @@ function NavBar() {
     
     return (
         <>
-            <Navbar bg="dark" variant="dark" className='navbar px-2 py-1'>
+            <Navbar bg="dark" variant="dark" sticky="top" className='navbar px-2 py-1'>
                 <Container fluid>
                     <Navbar.Brand href="/home" className='d-flex align-items-center navbar-logo'><i className="ri-play-circle-fill me-1"></i>VIDPORT</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
                     <Navbar.Collapse id="navbarScroll">
                         {renderUserName()}
                         {renderLoginLogout()}
-                        
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
