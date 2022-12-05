@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Home.css";
-import NavBar from "./Components/NavBar/NavBar";
-import Login from "./Components/Login/Login"
 import MovieBox from "./Components/MovieBox/MovieBox";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -13,25 +11,13 @@ import {
     Row,
     Col,
 } from "react-bootstrap";
-// import * as dotenv from 'dotenv';
-
 
 function Home() {
-    // dotenv.config()
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState("");
 
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_APIURL}movie/popular?api_key=${process.env.REACT_APP_APIKEY}`)
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             console.log(data);
-    //             setMovies(data.results);
-    //         });
-    // }, []);
-
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_APIURL}movie/popular?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`).then(response=>{
+        axios.get(`${process.env.REACT_APP_APIURL}movie/now_playing?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`).then(response=>{
             setMovies(response.data.results)
         }).catch(err=>{console.log(err)})
     }, [])

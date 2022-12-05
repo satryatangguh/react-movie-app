@@ -46,6 +46,7 @@ function Login() {
             }) 
             .then((res) => {
                 const validatedRequestToken = res.data.request_token;
+                console.log(validatedRequestToken);
                 axios({
                     method: "post",
                     url: `${process.env.REACT_APP_APIURL}authentication/session/new?api_key=${process.env.REACT_APP_APIKEY}`,
@@ -56,6 +57,7 @@ function Login() {
                 }) 
                 .then((res) => {
                     const sessionID = res.data.session_id;
+                    console.log(sessionID);
                     localStorage.setItem("sessionID", sessionID);
                     alert("Login Success! Welcome to Vidport!");
                     window.location.href = "/";
