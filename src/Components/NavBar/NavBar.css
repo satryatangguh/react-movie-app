@@ -24,13 +24,13 @@
     font-size: 30px;
 }
 
-.nav-link, .dropdown-toggle {
+.nav-link {
     font-size: 17px;
     font-weight: 500;
     color: #fff
 }
 
-.nav-link:hover, .dropdown-toggle:hover {
+.nav-link:hover {
     color: #fff;
 }
 

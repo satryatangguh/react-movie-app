@@ -1,4 +1,3 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./NavBar.css";
@@ -46,12 +45,12 @@ function NavBar() {
                 <>
                     <span className="navbar-text">
                         <ul className="navbar-nav me-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {username}
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#" onClick={handleLogout}>Logout</a></li>
+                                <ul className="dropdown-menu bg-dark">
+                                    <li><a className="dropdown-item bg-dark text-light" href="#" onClick={handleLogout}>Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -75,16 +74,22 @@ function NavBar() {
 
     return (
         <>
-            <nav className="navbar sticky-top navbar-expand-lg bg-dark py-0">
+            <nav className="navbar sticky-top navbar-expand-lg bg-dark px-4">
                 <div className="container-fluid">
-                    <a class="navbar-brand" href="/" className="d-flex align-items-center navbar-logo text-decoration-none">
+                    <a className="navbar-brand d-flex align-items-center navbar-logo text-decoration-none" href="/">
                         <i className="ri-play-circle-fill me-1"></i>VIDPORT
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="ri-menu-line"></i>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i className="ri-menu-line"></i>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto">
+                            <li className="nav-item">
+                                <a className="nav-link" href="/Movie">Movie</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/TVShow">TV Show</a>
+                            </li>
                         </ul>
                         {renderLoginLogout()}
                     </div>

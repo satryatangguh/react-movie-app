@@ -3,14 +3,6 @@ import axios from "axios";
 import "./Home.css";
 import MovieBox from "./Components/MovieBox/MovieBox";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-    Container,
-    Form,
-    FormControl,
-    Button,
-    Row,
-    Col,
-} from "react-bootstrap";
 
 function Home() {
     const [movies, setMovies] = useState([]);
@@ -43,26 +35,28 @@ function Home() {
 
     return (
         <>
-            <div className="my-3 mx-3">
-                <form className="d-flex group-search" onSubmit={searchMovie}>
-                    <input type="search" className="form-control" placeholder="Search" aria-label="search" name="query" value={query} onChange={changeHandler}/>
-                    <button className="btn btn-outline-secondary" type="submit">Search</button>
-                </form>
-            </div>
-            <div>
-                {movies.length > 0 ? (
-                    <div className="container-fluid">
-                        <div className="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2">
-                            {movies.map((movie, index) => (
-                                <div key={index}>
-                                    <MovieBox {...movie} />
-                                </div>
-                            ))}
+            <div className="px-4">
+                <div className="my-3 mx-3">
+                    <form className="d-flex group-search" onSubmit={searchMovie}>
+                        <input type="search" className="form-control" placeholder="Search for a movie" aria-label="search" name="query" value={query} onChange={changeHandler}/>
+                        <button className="btn btn-outline-secondary" type="submit">Search</button>
+                    </form>
+                </div>
+                <div>
+                    {movies.length > 0 ? (
+                        <div className="container-fluid">
+                            <div className="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2">
+                                {movies.map((movie, index) => (
+                                    <div key={index}>
+                                        <MovieBox {...movie} />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                ) : (
-                    <h2>Sorry Movie Not Found</h2>
-                )}
+                    ) : (
+                        <h2>Sorry Movie Not Found</h2>
+                    )}
+                </div>
             </div>
         </>
     );
