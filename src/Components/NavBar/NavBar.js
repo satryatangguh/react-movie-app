@@ -46,11 +46,11 @@ function NavBar() {
                     <span className="navbar-text">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a className="nav-link dropdown-toggle text-light" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {username}
                                 </a>
                                 <ul className="dropdown-menu bg-dark">
-                                    <li><a className="dropdown-item bg-dark text-light" href="#" onClick={handleLogout}>Logout</a></li>
+                                    <li><a className="dropdown-item bg-dark text-light" href="/" onClick={handleLogout}>Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
