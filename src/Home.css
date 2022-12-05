@@ -4,9 +4,25 @@
     font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
-    text-decoration: none;
-    list-style-type: none;
-    outline: none;
+}
+
+.search-hero {
+    height: 350px;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url("assets/search-banner.png");
+    background-position: center top;
+    background-size: cover;
+}
+
+.form-search {
+    border-radius: 10px 0 0 10px !important;
+}
+
+.btn-search {
+    border-radius: 0 10px 10px 0 !important;
+}
+
+.btn-search i {
+    color: #ffd700;
 }
 
 .container {
@@ -20,4 +36,3 @@
     grid-gap: 20px;
     justify-content: center;
 }
-

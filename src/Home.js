@@ -9,11 +9,17 @@ function Home() {
     const [query, setQuery] = useState("");
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_APIURL}trending/all/day?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`).then(response=>{
-            setMovies(response.data.results)
-        }).catch(err=>{console.log(err)})
-    }, [])
-    
+        axios
+            .get(
+                `${process.env.REACT_APP_APIURL}trending/all/day?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`
+            )
+            .then((response) => {
+                setMovies(response.data.results);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
     const searchMovie = async (e) => {
         e.preventDefault();
@@ -35,28 +41,38 @@ function Home() {
 
     return (
         <>
-            <div className="px-4">
-                <div className="my-3 mx-3">
+            <section className="search-hero px-4 d-flex align-items-center">
+                <div className="container-fluid">
+                    <div className="mb-5">
+                        <h1 className="fs-1 fw-bold text-light">Welcome.</h1>
+                        <h1 className="fs-2 fw-semibold text-light">
+                            Millions of movies and TV shows. Explore now.
+                        </h1>
+                    </div>
                     <form className="d-flex group-search" onSubmit={searchMovie}>
-                        <input type="search" className="form-control" placeholder="Search for a movie" aria-label="search" name="query" value={query} onChange={changeHandler}/>
-                        <button className="btn btn-outline-secondary" type="submit">Search</button>
+                        <input type="search" className="form-control form-search" placeholder="Search for a movie" aria-label="search" name="query" value={query} onChange={changeHandler}/>
+                        <button className="btn btn-secondary btn-search" type="submit">
+                            <i className="ri-search-line"></i>
+                        </button>
                     </form>
                 </div>
-                <div>
-                    {movies.length > 0 ? (
-                        <div className="container-fluid">
-                            <div className="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2">
-                                {movies.map((movie, index) => (
-                                    <div key={index}>
-                                        <MovieBox {...movie} />
-                                    </div>
-                                ))}
-                            </div>
+            </section>
+            <div className="px-4 mt-5">
+                {movies.length > 0 ? (
+                    <div className="container-fluid">
+                        <div className="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2">
+                            {movies.map((movie, index) => (
+                                <div key={index}>
+                                    <MovieBox {...movie} />
+                                </div>
+                            ))}
                         </div>
-                    ) : (
-                        <h2>Sorry Movie Not Found</h2>
-                    )}
-                </div>
+                    </div>
+                ) : (
+                    <div style={{height: "300px"}}>
+                        <h1 className="text-center">There are no movies or tv shows that matched your query.</h1>
+                    </div>
+                )}
             </div>
         </>
     );

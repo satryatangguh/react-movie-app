@@ -14,17 +14,9 @@ const MovieBox = ({title, original_name, poster_path, id, popularity, overview, 
         <>
             <div className="card text-center bg-dark rounded-3">
                 <div className="card-body">
-                    <img
-                        className="card-img-top rounded-3"
-                        src={API_IMG + poster_path}
-                        alt={title || original_name}
-                    />
+                    <img className="card-img-top rounded-3 card-image" src={API_IMG + poster_path} alt={title || original_name} />
                     <div className="card-body">
-                        <button
-                            type="button"
-                            className="btn btn-dark"
-                            onClick={handleShow}
-                        >
+                        <button type="button" className="btn btn-dark" onClick={handleShow}>
                             View Detail
                         </button>
                         <Modal size="md" variant="dark" show={show} onHide={handleClose}>
@@ -34,7 +26,7 @@ const MovieBox = ({title, original_name, poster_path, id, popularity, overview, 
                             <Modal.Body>
                                 <img
                                     className="card-img-top rounded-2"
-                                    style={{ width: "100%" }}
+                                    style={{ height: "100%" }}
                                     src={API_IMG + backdrop_path}
                                     alt={title || original_name}
                                 />
