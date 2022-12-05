@@ -80,12 +80,12 @@ function Login() {
     
     return (
         <>
-            <div className='container bg-light'>
-                <div className="text-center mt-5 mb-3">
-                    <h1 className='login-title'>Login to your account</h1>
-                </div>
-                <div className="row justify-content-center">
-                    <div className='col-lg-6 col-md-8 col-sm-10'>
+            <div className='px-4'>
+                <div className='container-fluid bg-light container-login'>
+                    <div className="mt-5 mb-3">
+                        <h1 className='login-title'>Login to your account</h1>
+                    </div>
+                    <div className="pt-1">
                         <form onSubmit={formik.handleSubmit}>
                             <div className="mb-3">
                                 <label
@@ -128,7 +128,6 @@ function Login() {
                         </form>
                     </div>
                 </div>
-                
             </div>
         </>
     );
