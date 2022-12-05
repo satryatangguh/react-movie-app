@@ -5,6 +5,7 @@ import './index.css';
 import Home from './Home';
 import Login from './Components/Login/Login';
 import NavBar from './Components/NavBar/NavBar';
+import Footer from './Components/Footer/Footer';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       <>
         <NavBar />
         <Outlet />
+        <Footer />
       </>
     ),
     errorElement : <p>Page Not Found</p>,
