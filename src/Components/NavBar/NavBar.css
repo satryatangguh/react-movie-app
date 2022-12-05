@@ -9,22 +9,39 @@
 
 .navbar-logo {
     font-family: 'Michroma', sans-serif;
-    color: #FFD700 !important;
-    font-size: 18px !important;
-    font-weight: 500 !important;
+    color: #ffd700;
+    font-size: 18px;
+    font-weight: 500;
     display: inline-flex;
     align-items: center;
+}
 
+.navbar-logo:hover {
+    color: #FFD700;
 }
 
 .navbar-logo i {
-    font-size: 30px !important;
+    font-size: 30px;
 }
 
-.navlink {
-    font-size: 17px !important;
-    font-weight: 500 !important;
-    color: #fff !important
+.nav-link, .dropdown-toggle {
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff
+}
+
+.nav-link:hover, .dropdown-toggle:hover {
+    color: #fff;
+}
+
+.navbar-toggler {
+    color: #FFD700;
+    border: none; 
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
 }
 
 

@@ -17,7 +17,7 @@ function Home() {
     const [query, setQuery] = useState("");
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_APIURL}movie/now_playing?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`).then(response=>{
+        axios.get(`${process.env.REACT_APP_APIURL}trending/all/day?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`).then(response=>{
             setMovies(response.data.results)
         }).catch(err=>{console.log(err)})
     }, [])
@@ -43,31 +43,23 @@ function Home() {
 
     return (
         <>
-            <Form className="d-flex" onSubmit={searchMovie}>
-                <FormControl
-                    type="search"
-                    placeholder="Movie Search"
-                    className="me-2"
-                    aria-label="search"
-                    name="query"
-                    value={query}
-                    onChange={changeHandler}
-                ></FormControl>
-                <Button variant="secondary" type="submit">
-                    Search
-                </Button>
-            </Form>
+            <div className="my-3 mx-3">
+                <form className="d-flex group-search" onSubmit={searchMovie}>
+                    <input type="search" className="form-control" placeholder="Search" aria-label="search" name="query" value={query} onChange={changeHandler}/>
+                    <button className="btn btn-outline-secondary" type="submit">Search</button>
+                </form>
+            </div>
             <div>
                 {movies.length > 0 ? (
-                    <Container fluid>
-                        <Row lg={5} md={3} sm={2} xs={2}>
+                    <div className="container-fluid">
+                        <div className="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2">
                             {movies.map((movie, index) => (
-                                <Col key={index}>
+                                <div key={index}>
                                     <MovieBox {...movie} />
-                                </Col>
+                                </div>
                             ))}
-                        </Row>
-                    </Container>
+                        </div>
+                    </div>
                 ) : (
                     <h2>Sorry Movie Not Found</h2>
                 )}

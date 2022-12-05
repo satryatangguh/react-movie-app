@@ -1,17 +1,21 @@
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import React, { useState, useEffect } from 'react';
+import { Navbar, Container, Nav } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './NavBar.css';
+import "./NavBar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function NavBar() {
     const [username, setUsername] = useState();
 
     useEffect(() => {
-        if(localStorage.getItem("sessionID")) {
+        if (localStorage.getItem("sessionID")) {
             const getAccount = async () => {
                 try {
-                    let response = await axios.get(`${process.env.REACT_APP_APIURL}account?api_key=${process.env.REACT_APP_APIKEY}&session_id=${localStorage.getItem("sessionID")}`);
+                    let response = await axios.get(
+                        `${process.env.REACT_APP_APIURL}account?api_key=${
+                            process.env.REACT_APP_APIKEY
+                        }&session_id=${localStorage.getItem("sessionID")}`
+                    );
                     setUsername(response.data.username);
                 } catch (error) {
                     console.log(error);
@@ -19,13 +23,13 @@ function NavBar() {
             };
             getAccount();
         }
-    },[]);
+    }, []);
 
     const renderLoginLogout = () => {
-        if(localStorage.getItem("sessionID")) {
+        if (localStorage.getItem("sessionID")) {
             const handleLogout = async () => {
                 try {
-                    await axios ({
+                    await axios({
                         method: "delete",
                         url: `${process.env.REACT_APP_APIURL}authentication/session?api_key=${process.env.REACT_APP_APIKEY}`,
                         data: {
@@ -34,54 +38,58 @@ function NavBar() {
                     });
                 } catch (error) {
                     console.log(error);
-                } localStorage.removeItem("sessionID");
+                }
+                localStorage.removeItem("sessionID");
                 window.location.href = "/";
             };
             return (
                 <>
-                    <Nav>
-                        <Nav.Link href="/#" className='navlink' onClick={handleLogout}>
-                            Logout
-                        </Nav.Link>
-                    </Nav>
+                    <span className="navbar-text">
+                        <ul className="navbar-nav me-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {username}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onClick={handleLogout}>Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </span>
                 </>
             );
         }
 
         return (
-            <Nav className="me-auto justify-content-end flex-grow-1" navbarScroll>
-                <Nav.Link href="/login" className='navlink'>
-                    Login
-                </Nav.Link>
-            </Nav>
-        );
-    };
-
-    const renderUserName = () => {
-        return (
             <>
-                <Nav className="me-auto" navbarScroll>
-                    <Nav.Link href="/login" className='navlink'>
-                        {username}
-                    </Nav.Link>
-                </Nav>
+                <span>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/login">
+                            Login
+                        </a>
+                    </li>
+                </span>
             </>
         );
     };
-    
+
     return (
         <>
-            <Navbar bg="dark" variant="dark" sticky="top" className='navbar px-2 py-1'>
-                <Container fluid>
-                    <Navbar.Brand href="/" className='d-flex align-items-center navbar-logo'><i className="ri-play-circle-fill me-1"></i>VIDPORT</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
-                    <Navbar.Collapse id="navbarScroll">
-                        {renderUserName()}
+            <nav className="navbar sticky-top navbar-expand-lg bg-dark py-0">
+                <div className="container-fluid">
+                    <a class="navbar-brand" href="/" className="d-flex align-items-center navbar-logo text-decoration-none">
+                        <i className="ri-play-circle-fill me-1"></i>VIDPORT
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="ri-menu-line"></i>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto">
+                        </ul>
                         {renderLoginLogout()}
-                        
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+                    </div>
+                </div>
+            </nav>
         </>
     );
 }
