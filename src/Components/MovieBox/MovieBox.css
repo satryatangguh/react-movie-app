@@ -6,6 +6,10 @@
     margin: 0;
 }
 
+.title {
+    font-size: 14px;
+}
+
 .btn.btn-dark, .btn.btn-dark:hover {
     background-color: #FFD700;
     color: #000;

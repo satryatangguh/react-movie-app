@@ -14,6 +14,7 @@ function Home() {
                 `${process.env.REACT_APP_APIURL}trending/all/day?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`
             )
             .then((response) => {
+                console.log(response.data.results)
                 setMovies(response.data.results);
             })
             .catch((err) => {
