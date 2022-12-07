@@ -1,4 +1,4 @@
-# React Movie Database App
+# Vidport (React Movie Database App)
 
 Vidport is mini project from Dibimbing and movie database website. This project create by using [ReactJS](https://reactjs.org/), [Bootstrap](https://getbootstrap.com/), and [TMDBAPI](https://www.themoviedb.org/).
 
