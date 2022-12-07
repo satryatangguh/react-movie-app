@@ -4,14 +4,14 @@ import "./Home.css";
 import MovieBox from "./Components/MovieBox/MovieBox";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Home() {
+function Tvshow() {
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState("");
 
     useEffect(() => {
         axios
             .get(
-                `${process.env.REACT_APP_APIURL}trending/all/day?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`
+                `${process.env.REACT_APP_APIURL}tv/popular?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`
             )
             .then((response) => {
                 console.log(response.data.results)
@@ -26,7 +26,7 @@ function Home() {
         e.preventDefault();
         console.log("Searching");
         try {
-            const url = `https://api.themoviedb.org/3/search/multi?api_key=21ffcbecb3d48c284c502cdad4c17183&query=${query}`;
+            const url = `https://api.themoviedb.org/3/search/tv?api_key=21ffcbecb3d48c284c502cdad4c17183&query=${query}`;
             const res = await fetch(url);
             const data = await res.json();
             console.log(data);
@@ -51,7 +51,7 @@ function Home() {
                         </h1>
                     </div>
                     <form className="d-flex group-search" onSubmit={searchMovie}>
-                        <input type="search" className="form-control form-search" placeholder="Search" aria-label="search" name="query" value={query} onChange={changeHandler}/>
+                        <input type="search" className="form-control form-search" placeholder="Search for a tv show" aria-label="search" name="query" value={query} onChange={changeHandler}/>
                         <button className="btn btn-secondary btn-search" type="submit">
                             <i className="ri-search-line"></i>
                         </button>
@@ -71,7 +71,7 @@ function Home() {
                     </div>
                 ) : (
                     <div style={{height: "300px"}}>
-                        <h1 className="text-center">There are no movies or tv shows that matched your query.</h1>
+                        <h1 className="text-center">There are no tv shows that matched your query.</h1>
                     </div>
                 )}
             </div>
@@ -79,4 +79,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Tvshow;

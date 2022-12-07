@@ -43,7 +43,7 @@ function NavBar() {
             };
             return (
                 <>
-                    <span className="navbar-text">
+                    <span>
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle text-light" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">

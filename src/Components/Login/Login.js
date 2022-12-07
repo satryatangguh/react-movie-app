@@ -60,7 +60,8 @@ function Login() {
                     console.log(sessionID);
                     localStorage.setItem("sessionID", sessionID);
                     alert("Login Success! Welcome to Vidport!");
-                    window.location.href = "/";
+                    window.location.assign("/");
+
                 
                 }) 
                 .catch((error) => {

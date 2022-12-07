@@ -24,6 +24,11 @@
 .btn-search i {
     color: #ffd700;
 }
+.trending {
+    font-size: 30px;
+    font-weight: 700;
+
+}
 
 .container {
     background-color: #242b2b;
