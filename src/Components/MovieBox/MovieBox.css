@@ -6,7 +6,7 @@
     margin: 0;
 }
 
-.title {
+.title, .card-score {
     font-size: 14px;
 }
 
@@ -23,17 +23,18 @@
     transition: all 0.5s ease-in;
 }
 
-.card-title {
-    font-size: 25px;
+.card-title, .card-subtitle {
     font-weight: 600;
 }
 
-.card-subtitle {
-    font-size: 18px;
-    font-weight: 600;
+.card-logo {
+    color: #FFD700;
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
 }
 
 .card-overview {
-    font-size: 14px;
     text-align: justify;
+    font-size: 14px;
 }

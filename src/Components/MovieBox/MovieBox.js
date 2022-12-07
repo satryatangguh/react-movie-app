@@ -23,9 +23,25 @@ const MovieBox = ({title, name, poster_path, id, popularity, overview, backdrop_
                         </div>
                         <div className='modal-body'>
                             <img className="card-img-top rounded-2" style={{ height: "100%" }} src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`} alt={title || name} />
-                            <h1 className="card-title my-2">{title || name}</h1>
-                            <h3 className="card-subtitle my-2">ID: {id} <span>Popularity: {popularity}</span></h3>
-                            <p className="card-overview mt-4">{overview}</p>
+                            <h1 className="card-title fs-4 my-2">{title || name}</h1>
+                            <h2 className='fs-6 fw-semibold mt-3'>Overview</h2>
+                            <p className="card-overview mt-0">{overview}</p>
+                            <div className='row'>
+                                <div className='col-3 text-center'>
+                                    <p className="fs-6 fw-semibold my-2">Movie ID</p>
+                                    <div className='d-inline-flex align-items-center'>
+                                        <i className="ri-hashtag fs-5 me-2 card-logo bg-dark d-flex align-items-center justify-content-center"></i>
+                                        <p className="card-score my-2">{id}</p>
+                                    </div>
+                                </div>
+                                <div className='col-3 text-center'>
+                                    <p className="fs-6 fw-semibold my-2">Popularity</p>
+                                    <div className='d-inline-flex align-items-center'>
+                                        <i className="ri-star-fill fs-5 me-2 card-logo bg-dark d-flex align-items-center justify-content-center"></i>
+                                        <p className="card-score my-2">{popularity}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className='modal-footer'>
                             <button type="button" className="btn btn-dark">
