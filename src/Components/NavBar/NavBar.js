@@ -43,31 +43,33 @@ function NavBar() {
             };
             return (
                 <>
-                    <span>
-                        <ul className="navbar-nav me-auto">
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle text-light" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {username}
-                                </a>
-                                <ul className="dropdown-menu bg-dark">
-                                    <li><a className="dropdown-item bg-dark text-light" href="/" onClick={handleLogout}>Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </span>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>
+                    </li>
                 </>
             );
         }
 
         return (
             <>
-                <span>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/login">
-                            Login
-                        </a>
+                <li className="nav-item">
+                    <a className="nav-link" href="/login" >
+                        Login
+                    </a>
+                </li>
+                
+            </>
+        );
+    };
+
+    const renderUserName = () => {
+        return (
+            <>
+                <ul className="navbar-nav me-auto">
+                    <li className="nav-link">
+                        {username}
                     </li>
-                </span>
+                </ul>
             </>
         );
     };
@@ -83,15 +85,18 @@ function NavBar() {
                         <i className="ri-menu-line"></i>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto">
-                            <li className="nav-item">
-                                <a className="nav-link" href="/Movie">Movie</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/TVShow">TV Show</a>
-                            </li>
-                        </ul>
-                        {renderLoginLogout()}
+                        {renderUserName()}
+                        <span>
+                            <ul className="navbar-nav me-auto">
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/Movie">Movie</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/TVShow">TV Show</a>
+                                </li>
+                                {renderLoginLogout()}
+                            </ul>
+                        </span>
                     </div>
                 </div>
             </nav>
