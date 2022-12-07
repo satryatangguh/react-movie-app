@@ -1,48 +1,83 @@
-# Getting Started with Create React App
+# React Movie Database App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Vidport is mini project from Dibimbing and movie database website. This project create by using [ReactJS](https://reactjs.org/), [Bootstrap](https://getbootstrap.com/), and [TMDBAPI](https://www.themoviedb.org/).
 
-## Available Scripts
+## Features of this App
 
-In the project directory, you can run:
+- Login Page
+- Home Page
+- TV Show Page
+- Movie Page
+- Movie and TV Show Card View
+- Detail of Movie and TV Show
+- Search Movie and TV Show
 
-### `npm start`
+## Libraries of this App
+In this project, there are several libraries used which consist of:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Axios
+- Type `npm install axios` on your terminal to installing axios.
+- Once the package installed, you can import the library using: 
+```js
+import axios from 'axios';
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Formik and Yup
+- Type `npm install formik yup` on your terminal.
+- Once the package installed, you can import the library using: 
+```js
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+```
 
-### `npm test`
+### React-bootstrap
+- Type `npm install react-bootstrap` on your terminal.
+- Once the package installed, you can import the library using:
+```js
+import { Modal, ... } from 'react-bootstrap';
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Get Bootstrap
+- Import library using CDN in the `index.html` file in the repository:
+```html
+<head>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+        crossorigin="anonymous"
+    />
+</head>
+<body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous">
+    </script>
+</body>
+```
 
-### `npm run build`
+### React Router
+- Type `npm install react-router-dom` on your terminal.
+- Once the package installed, you can import library in the `index.js` file:
+```js
+import ReactDOM from "react-dom/client";
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Dotenv
+- Type `npm install dotenv` on your terminal.
+- Once the package installed, you can create `webpack.config.js` file. Then you can open the file an type:
+```js
+const Dotenv = require('dotenv-webpack');
+module.exports = {
+    plugins: [
+        new Dotenv()
+    ]
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Run App
-
-⋅⋅* In the directiory, type `npm install` on your terminal to adding node module.
-⋅⋅* You can type `npm install` to run the app.
-⋅⋅* The app will be running on [http://localhost:3000](http://localhost:3000).
-
-
+- In the directiory, type `npm install` on your terminal to adding node module.
+- You can type `npm install` to run the app.
+- The app will be running on [http://localhost:3000](http://localhost:3000).
