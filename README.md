@@ -12,7 +12,7 @@ Vidport is mini project from Dibimbing and movie database website. This project 
 - Detail of Movie and TV Show
 - Search Movie and TV Show
 
-## Libraries of this App
+## Libraries and Tools
 In this project, there are several libraries used which consist of:
 
 ### Axios
