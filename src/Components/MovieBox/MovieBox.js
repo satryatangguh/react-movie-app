@@ -15,7 +15,7 @@ const MovieBox = ({title, name, poster_path, id, popularity, overview, backdrop_
                 <img className="card-img-top h-100" src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title || name} />
                 <div className="card-body text-light">
                     <button type="button" className="btn btn-dark" onClick={handleShow}>
-                        More & Detail
+                        Detail
                     </button>
                     <Modal size="md" variant="dark" show={show} onHide={handleClose}>
                         <div className="modal-header">
